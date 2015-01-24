@@ -71,7 +71,7 @@
           to = moj.Helpers.dateFromIso(this.slotPicker.bookableDates[len - 1]),
           buffer = Math.floor(this.settings.displayDays / 2),
           bufferFrom = new Date(), bufferTo = new Date();
-      
+
       // clone date range
       bufferFrom.setTime(from.getTime());
       bufferTo.setTime(to.getTime());
@@ -126,19 +126,19 @@
 
     calculateDimensions: function() {
       this.settings.viewPort        = this.$window.width();
-      
+
       this.settings.visibleDays     = this.$small.find('li').length;
       this.settings.selectableDays  = this.$large.find('li').length;
 
       this.settings.dayWidth        = Math.floor(this.settings.viewPort / this.settings.displayDays);
       this.settings.width           = this.settings.dayWidth * this.settings.displayDays;
       this.settings.middle          = Math.floor(this.settings.displayDays / 2) * this.settings.dayWidth;
-      
+
       this.settings.dayHeight       = Math.floor(this.settings.dayWidth * this.settings.SQUASHDAYS);
       this.settings.largeHeight     = Math.floor(this.settings.dayHeight * this.settings.MAGNIFYDAY);
       this.settings.largeLineHeight = (this.settings.largeHeight * this.settings.UPNESS) * 2 + this.settings.dayHeight;
       this.settings.topOffset       = Math.floor(this.settings.largeHeight * this.settings.UPNESS);
-      
+
       this.settings.fontSmall       = this.settings.dayHeight * this.settings.FONTSIZESCALE;
       this.settings.fontLarge       = this.settings.fontSmall * this.settings.MAGNIFYFONT;
       this.settings.fontSmaller     = this.settings.fontLarge * this.settings.SHRINKWEEKDAY;
@@ -150,36 +150,36 @@
       if (!this.settings.resizeonload) {
         return this.$_el.css({visibility: 'visible'});
       }
-      
+
       this.$buttonL.add(this.$buttonR).css({
         width: this.settings.dayWidth + unit,
         height: this.settings.dayHeight + unit,
         fontSize: this.settings.fontLarge + unit,
         lineHeight: this.settings.dayHeight + unit
       });
-      
+
       $('.DateSlider-sliders', this.$_el).css({
         height: this.settings.dayHeight + unit
       });
-      
+
       this.$day.css({
         width: this.settings.dayWidth + unit,
         fontSize: this.settings.fontSmall + unit,
         lineHeight: this.settings.dayHeight + unit
       });
-      
+
       $('.DateSlider-days', this.$touch).css({
         width: (this.settings.dayWidth * this.settings.visibleDays) + unit
       });
-      
+
       $('.DateSlider-days', this.$small).css({
         width: (this.settings.dayWidth * this.settings.visibleDays) + unit
       });
-      
+
       this.$largeRow.css({
         width: (this.settings.dayWidth * this.settings.selectableDays) + unit
       });
-      
+
       $('li', this.$largeRow).css({
         fontSize: this.settings.fontLarge + unit,
         lineHeight: this.settings.largeLineHeight + unit
@@ -245,7 +245,7 @@
 
     selectDateFromIndex: function(index) {
       var day = this.$large.find('li').eq(index);
-      
+
       day.trigger('chosen');
       this.showMonthForDate(day.data('date'));
     },
@@ -301,10 +301,10 @@
 
       // clone date to prevent changing original var
       curDate.setTime(from.getTime());
-      
+
       while (curDate <= to) {
         curIso = moj.Helpers.formatIso(curDate);
-        
+
         out+= template({
           dayLabel: dayLabel,
           klass: moj.Helpers.dateBookable(curIso, this.slotPicker.bookableDates) ? '' : 'unavailable',
@@ -312,7 +312,7 @@
           day: curIso.substr(8, 2),
           weekDay: this.settings.days[curDate.getDay()].substr(0, 3)
         });
-        
+
         curDate.setDate(curDate.getDate() + 1);
       }
 
@@ -347,7 +347,7 @@
       lastMonth = from.getMonth();
       from.setDate(from.getDate() + 1);
     }
-    
+
     return months;
   };
 

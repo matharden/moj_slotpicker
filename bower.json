@@ -16,5 +16,12 @@
     "Mat Harden <matharden@gmail.com>"
   ],
   "description": "A Web user interface for selecting 3 time slots in order of preference",
-  "license": "OGL2 http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/"
+  "license": "OGL2 http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/",
+  "dependencies": {
+    "jquery": "~1.11.0",
+    "handlebars": "~1.3.0"
+  },
+  "devDependencies": {
+    "jasmine-jquery": "~2.0.5"
+  }
 }

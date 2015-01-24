@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     fileinclude = require('gulp-file-include'),
     rename = require('gulp-rename'),
     replace = require('gulp-replace'),
-    header = require('gulp-header');
+    header = require('gulp-header'),
+    jasmine = require('gulp-jasmine');
 
 var paths = {
   scripts: './src/javascripts/**/*.js',
@@ -79,6 +80,11 @@ gulp.task('watch', function() {
   gulp.watch(paths.scripts, ['lint','copy']);
   gulp.watch(paths.markup, ['include']);
   gulp.watch(paths.styles, ['sass']);
+});
+
+gulp.task('jasmine', function () {
+  return gulp.src('tests/spec/SlotPickerSpec.js')
+    .pipe(jasmine());
 });
 
 // tasks
