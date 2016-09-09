@@ -179,6 +179,10 @@
         next.removeClass('is-active');
       }
 
+      if (i === 0 && this.settings.navMonths.length > 1) {
+        this.$calMask.addClass('BookingCalendar-mask--fixed');
+      }
+
       this.$currentMonth.text(this.settings.navMonths[i].label);
     },
 

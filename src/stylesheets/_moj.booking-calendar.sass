@@ -1,8 +1,10 @@
 .BookingCalendar-mask
   position: relative
   overflow: hidden
-  height: 279px
   border-bottom: 1px solid $grey-3
+
+.BookingCalendar-mask--fixed
+  height: 279px
 
 table.BookingCalendar-dates
   width: 100%
@@ -33,7 +35,7 @@ table.BookingCalendar-dates
       color: $grey-3
       style: solid
       width: 0 0 1px 1px
-  
+
   td:last-child > div,
     border-right: 1px solid $grey-3
 
@@ -57,7 +59,7 @@ a.BookingCalendar-dateLink
 
   &.is-chosen
     overflow: hidden
-    
+
     &:after
       position: absolute
       content: ''
